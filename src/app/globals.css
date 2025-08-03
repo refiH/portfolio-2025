@@ -1,26 +1,232 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@plugin '@designbycode/tailwindcss-text-stroke';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #263c72;
+  --secondary: #1e47ab;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  /* Font Families */
+  --font-display: 'Staatliches', 'sans-serif';
+  --font-body: 'Nunito Sans', 'sans-serif';
+
+  /* Colors */
+  --color-dark: #191717;
+  --color-light: #ffefe8;
+
+  /* Breakpoints */
+  --breakpoint-xxs: 360px;
+  --breakpoint-xs: 480px;
+  --breakpoint-xl: 1600px;
+
+  /* Font Sizes */
+  --text-h1: 90px;
+  --text-h2: 67px;
+  --text-h3: 51px;
+  --text-h4: 38px;
+  --text-h5: 28px;
+  --text-h6: 21px;
+  --text-p: 16px;
+  --text-small: 14px;
+
+  /* Line Heights */
+  --leading-default: 120%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  @apply transition-colors duration-300;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--primary);
+}
+
+::-moz-selection {
+  color: var(--secondary);
+  background: #fff;
+}
+
+::selection {
+  color: var(--secondary);
+  background: #fff;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.border-secondary {
+  border-color: var(--secondary);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+/**
+  * MAIN SCROLLBAR
+  *
+  */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-light rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#FFEFE8];
+}
+
+/**
+  * CUSTOM CLASSES
+  *
+  */
+@layer components {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .section {
+    @apply max-w-[1600px] mx-auto;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  main section > div,
+  header > div,
+  footer > div {
+    @apply max-w-[1600px] mx-auto;
+  }
+
+  main section {
+    @apply w-full sm:px-8 px-6 overflow-x-hidden pt-24 relative z-[1];
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  /** 
+   * TEXT SIZES
+   *
+   */
+  * {
+    @apply leading-default;
+  }
+  h1 {
+    @apply text-h1 font-display;
+  }
+  h2 {
+    @apply text-h2 font-display;
+  }
+  h3 {
+    @apply text-h3 font-body font-light;
+  }
+  h4 {
+    @apply text-h4 font-body font-light;
+  }
+  h5 {
+    @apply text-h5 font-body font-light;
+  }
+  h6 {
+    @apply text-h6 font-body font-light;
+  }
+  p {
+    @apply text-p font-body font-light;
+  }
+  small {
+    @apply text-small font-body font-light;
+  }
+
+  /**
+   * FONT FAMILY
+   *
+   */
+  /* NUNITO SANS */
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(../../public/fonts/NunitoSans_10pt-ExtraLight.ttf);
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(../../public/fonts/NunitoSans_10pt-Light.ttf);
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../../public/fonts/NunitoSans_10pt-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(../../public/fonts/NunitoSans_10pt-Medium.ttf);
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(../../public/fonts/NunitoSans_10pt-SemiBold.ttf);
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(../../public/fonts/NunitoSans_10pt-Bold.ttf);
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url(../../public/fonts/NunitoSans_10pt-ExtraBold.ttf);
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(../../public/fonts/NunitoSans_10pt-Black.ttf);
+  }
+
+  /* STAATLICHES */
+  @font-face {
+    font-family: 'Staatliches';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../../public/fonts/Staatliches-Regular.ttf);
+  }
 }
