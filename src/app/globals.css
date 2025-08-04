@@ -7,6 +7,8 @@
 }
 
 @theme {
+  --max-section: 1280px;
+
   /* Font Families */
   --font-display: 'Staatliches', 'sans-serif';
   --font-body: 'Nunito Sans', 'sans-serif';
@@ -101,7 +103,7 @@
     @apply flex items-center justify-center;
   }
   .section {
-    @apply max-w-[1600px] mx-auto;
+    @apply max-w-[var(--max-section)] mx-auto;
   }
 }
 
@@ -109,7 +111,7 @@
   main section > div,
   header > div,
   footer > div {
-    @apply max-w-[1600px] mx-auto;
+    @apply max-w-[var(--max-section)] mx-auto;
   }
 
   main section {
