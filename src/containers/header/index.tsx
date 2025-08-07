@@ -3,7 +3,7 @@ import { Palette } from 'lucide-react'
 const Header = () => {
   return (
     <header className='w-full fixed left-1/2 -translate-x-1/2 top-0 z-40'>
-      <div className='flex justify-between items-center pt-6'>
+      <div className='flex justify-between items-center xl:px-0 px-6 pt-6'>
         <button className='italic text-p text-left font-body font-light'>
           <div>Refi</div>
           <div>Hikman</div>
